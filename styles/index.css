@@ -1,0 +1,481 @@
+@charset "utf-8";
+
+
+
+.logo:hover {
+	transform: scale(1.02);
+}
+
+
+body {
+    background: radial-gradient(circle, #b0ceb0, #587a5b, #2e7e37);
+    height: 100vh;
+    margin: 0;
+}
+
+
+/* page des activités*/
+
+
+/* CSS du début de page */
+h2 {
+	background-image: url("images/Logo.png");
+}
+
+.menu {
+	display: flex;
+	/* Transformation en flexbox */
+	padding: 0;
+	/* Suppression des marges internes */
+	background-color: #ccc;
+	/* Ajout de la couleur d'arrière-plan */
+}
+
+
+nav [class=ici] {
+	background-color: rgb(77, 158, 120);
+	color: white;
+}
+
+nav.menu {
+    background-color: #4CAF50; /* Vert pour le header */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+
+/* Fin CSS du début de page */
+
+/* Style général du body */
+
+
+
+h1 {
+
+	text-decoration: underline overline solid #516553;
+
+}
+
+/* Style du bandeau de navigation */
+nav.menu {
+	background-color: #45b645;
+	text-shadow: #FC0 1px 0 10px;
+	padding: 10px 20px;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 1000;
+	box-shadow: 0 6px 5px rgba(0, 0, 0, 0.2);
+	text-align: center;
+}
+
+/* Style des liens du menu */
+nav.menu a {
+
+	color: white;
+	text-decoration: none;
+	margin: 0 20px;
+	font-size: 16px;
+	text-transform: uppercase;
+	padding: 8px 16px;
+	display: inline-block;
+}
+
+/* Effet au survol des liens */
+nav.menu a:hover {
+
+	background-color: #3a9e3a;
+	border-radius: 5px;
+	transition: background-color 0.3s ease;
+}
+
+/* Assurer que l'image soit bien visible et centrée sous le titre */
+header {
+	background-color: #b0ceb0;
+	color: #fff;
+	padding: 20px;
+	text-align: center;
+	padding: 20px 0;
+}
+
+header h1 {
+	color: #333;
+	font-size: 36px;
+	font-weight: bold;
+	margin: 20px 0;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+}
+
+/* Mise en forme de l'image sous le titre */
+header img {
+	height: 150px;
+	margin: 20px 0;
+	max-width: 100%;
+	object-fit: contain;
+	padding-top: 2rem;
+
+
+}
+
+
+/* aide de cette video : https://www.youtube.com/watch?v=8-H0VTwa8vE */
+
+
+html {
+	font-size: 16px;
+}
+
+
+/* CSS du footer */
+footer {
+	background-color: #45b645;
+	color: #fff;
+	padding: 5px 2.5px;
+	text-align: center;
+	font-size: 14px;
+	line-height: 1.6;
+	border-top: 4px solid #489e4b;
+}
+
+/* Liens du footer */
+footer a {
+	color: #cbecc1;
+	text-decoration: none;
+	padding: 0 8px;
+}
+
+/* Effet au survol des liens */
+footer a:hover {
+	color: #265833;
+	text-decoration: underline;
+}
+
+/* Style pour le logo dans le footer */
+footer img {
+	margin-top: 20px;
+	width: 180px;
+	height: auto;
+	border-radius: 8px;
+}
+
+footer img:hover {
+	transform: scale(1.05);
+}
+
+/* Ajouter une marge entre les différentes sections du footer */
+footer p {
+	margin: 10px 0;
+}
+
+/* Fin de CSS du footer */
+
+
+/* CSS du défilement progressif + alignement du texte */
+
+.presentation {
+	margin: auto;
+	padding: 24px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 800px;
+}
+
+h2 {
+	padding: 24px;
+	font-size: 2rem;
+	text-align: center;
+	animation: reveal linear;
+	/* les 3 lignes suivantes ne sont pas validé sur W3C car non standard (permettent de faire l'effet de scroll)*/
+	animation-timeline: view();
+	animation-range-start: cover 0%;
+	animation-range-end: contain 50%;
+}
+
+
+li,
+p {
+	padding: 16px;
+	animation: slide linear;
+	/* les 3 lignes suivantes ne sont pas validé sur W3C car non standard (permettent de faire l'effet de scroll)*/
+	animation-timeline: view();
+	animation-range-start: cover 0%;
+	animation-range-end: cover 30%;
+}
+
+@keyframes slide {
+	from {
+		transform: translateY(100%);
+		opacity: 0;
+	}
+
+	to {
+		transform: translateY(0);
+		opacity: 1;
+	}
+}
+
+@keyframes reveal {
+	from {
+		transform: scale(0);
+		opacity: 0;
+	}
+
+	to {
+		transform: scale(1);
+		opacity: 1;
+	}
+}
+
+
+@keyframes scroll {
+	from {
+		background-size: 0% 5px;
+	}
+
+	to {
+		background-size: 100% 5px;
+	}
+}
+
+
+/*Fin du CSS de déroulement */
+
+/*hover*/
+
+a::before {
+	transform: scaleX(0);
+	transform-origin: bottom right;
+}
+
+a:hover::before {
+	transform: scaleX(1);
+	transform-origin: bottom left;
+}
+
+a::before {
+	content: " ";
+	display: block;
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	inset: 0 0 0 0;
+	background: hsl(151, 44%, 54%);
+	z-index: -1;
+	transition: transform .3s ease;
+	border-radius: 5px;
+}
+
+a {
+	position: relative;
+	font-size: 1rem;
+}
+
+
+/* pour changer la mise en page en fonction des tailles d'écrans */
+
+
+@media (max-width: 1024px) {
+	.presentation {
+		width: 90%;
+	}
+
+	header h1 {
+		font-size: 28px;
+	}
+
+	h2 {
+		font-size: 24px;
+	}
+}
+
+@media (max-width: 862px) {
+	header img {
+		margin-top: 2rem;
+	}
+}
+
+
+@media (max-width: 768px) {
+
+	/* Alignement du menu et du contenu */
+	.menu {
+		flex-direction: column;
+	}
+
+	header h1 {
+		font-size: 20px;
+	}
+
+	h2 {
+		font-size: 18px;
+	}
+	
+	header img {
+		margin-top: 7rem;
+	}
+
+	.logo {
+		padding-top: 10rem;
+	}
+
+	section.attractions p,
+	section.attractions ul li {
+		font-size: 16px;
+	}
+
+	.video-container iframe {
+		width: 100%;
+		height: auto;
+	}
+
+	footer p {
+		font-size: 12px;
+	}
+
+	footer a {
+		font-size: 12px;
+	}
+  .text-overlay {
+    position: absolute;
+    font-size: 10%;
+    top: 50%;
+    left: 75%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 0.5rem;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.4);
+    padding: 5px 10px;
+    border-radius: 5px;
+  }
+  footer {
+		padding: 20px 10px;
+	}
+
+	footer img {
+		width: 100px;
+	}
+
+	footer p {
+		font-size: 12px;
+	}
+
+	footer a {
+		font-size: 12px;
+	}
+  
+}
+
+/* Conteneur du logo avec texte superposé */
+.logoIUT {
+	position: relative;
+	display: inline-block;
+}
+
+/* Style de l'image du logo */
+.logoIUT img {
+	width: 100%;
+	height: auto;
+	border-radius: 8px;
+}
+
+/* Texte superposé */
+.text-overlay {
+	position: absolute;
+	top: 50%;
+	left: 75%;
+	transform: translate(-50%, -50%);
+	color: white;
+	font-size: 0.5rem;
+	font-weight: bold;
+	text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+	background-color: rgba(0, 0, 0, 0.4);
+	padding: 5px 10px;
+	border-radius: 5px;
+}
+
+/* polices */
+
+@font-face {
+  font-family: 'Geist';
+  font-weight: 400;
+  src:url('fonts/Geist-Regular.woff2') format('woff2'),
+
+
+}
+@font-face {
+  font-family: 'Vercetti';
+  font-weight: 400;
+  src:url('fonts/Vercetti-Regular.woff') format('woff')
+
+
+}
+
+
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Geist';
+
+}
+*{
+  font-family: 'Vercetti';
+}
+
+
+footer .newsletter {
+  margin-top: 20px;
+}
+
+footer .newsletter input {
+  padding: 10px;
+  width: 60%;
+  max-width: 300px;
+  margin-right: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+footer .newsletter button {
+  padding: 10px 20px;
+  background-color: #216e38;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+footer .newsletter {
+  margin-top: 20px;
+}
+
+footer .newsletter input {
+  padding: 10px;
+  width: 60%;
+  max-width: 300px;
+  margin-right: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+footer .newsletter button {
+  padding: 10px 20px;
+  background-color: #f05a28;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+footer .newsletter button:hover {
+  background-color: #52a2bb;
+}
